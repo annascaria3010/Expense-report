@@ -1,8 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-function Title() {
-  return <h1 >O-Kane Tracker</h1>;
-  
+const Title = ({title}) => {
+  return (
+    <h1>{title}</h1>
+  )
 }
 
-export default Title;
+export default Title
