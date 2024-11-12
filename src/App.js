@@ -10,7 +10,7 @@ class App extends Component {
   return (
     <div>
     <Title title={"O-Kane"}/>
-    <Button />
+    <Button btn={"Add Expense"} />
     </div>
   );
 }
