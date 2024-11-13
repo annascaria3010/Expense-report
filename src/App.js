@@ -3,6 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from './Main';
 import ExpenseForm from './components/ExpenseForm';
+import ExpenseList from './components/ExpenseList';
+
 
 const App = () => {
   return (
@@ -10,6 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/expenseform" element={<ExpenseForm />} />
+        <Route path='/expenselist' element={<ExpenseList/>} />
       </Routes>
     </Router>
   );

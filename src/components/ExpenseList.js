@@ -1,7 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-function ExpenseList({ expenses, onEdit, onDelete }) {
- 
+const ExpenseList = () => {
+  return (
+    <div>Expense</div>
+  )
 }
 
-export default ExpenseList;
+export default ExpenseList
