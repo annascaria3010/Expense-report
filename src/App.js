@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import Title from './components/Title';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Main from './Main';
 import ExpenseForm from './components/ExpenseForm';
-import ExpenseList from './components/ExpenseList';
-import Button from './components/Atoms/Button';
 
-class App extends Component {
-  render() {
+const App = () => {
   return (
-    <div>
-    <Title title={"O-Kane"}/>
-    <Button btn={"Add Expense"} />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/expenseform" element={<ExpenseForm />} />
+      </Routes>
+    </Router>
   );
-}
-}
+};
 
 export default App;
