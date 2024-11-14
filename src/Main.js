@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Title from './components/Title';
 import ExpenseForm from './components/ExpenseForm';
@@ -10,6 +10,8 @@ import ExpenseList from './components/ExpenseList';
 const Main = () => {
 const navigate = useNavigate();
 
+const [expenses, setExpenses] = useState([]);
+
 const handleButtonClick = () => {
   navigate("/expenseform");
 };
@@ -18,7 +20,7 @@ const handleButtonClick = () => {
     <div>
     <Title title={"O-Kane"} />
     <button onClick={handleButtonClick}>Add Expense</button>
-    <ExpenseList/>
+    <ExpenseList expenses={expenses} />
     </div>
   )
 }

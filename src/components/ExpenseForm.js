@@ -2,40 +2,55 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 import { useNavigate } from "react-router-dom";
 
-function ExpenseForm() {
+function ExpenseForm({onAddExpense}) {
     const navigate = useNavigate();
 
-    const [text,setText] = useState('');
-    const [number,setNumber] = useState('');
+    const [form, setForm] = useState({description:'', amount:''});
     
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm((prevForm) => ({ ...prevForm, [name]: value }));
+      };
     const handleCancelButton = () => {
         navigate("/");
       };
 
-    const handleAddButton = (event) => {
-        setText(event.target.value);
-        setNumber(event.target.value);
-        navigate("/");
-      };
+    const handleAddButton = (e) => {
+        
+        const expenseData={
+            id: Date.now(),
+            description: form.description,
+            amount:parseFloat(form.amount),
+        };
+        onAddExpense(expenseData);
+        setForm({ description:'', amount:''});
+        
+    }
+       
     return( 
     <div>
         <h1>Expense Form</h1>
-        <div>
+        <form onSubmit={handleAddButton}>
             <input 
                 type='text'
-                value={text}
-                placeholder='Reason'>
-
-            </input>
+                name="description"
+                value={form.description}
+                placeholder='Expense Description'
+                onChange={handleChange}
+                required
+            />
             <input 
                 type='number'
-                value={number}
-                placeholder='Amount in Yen'>
-       
-            </input>
-        </div>
-        <button onClick={handleAddButton}>Add</button>
-        <button onClick={handleCancelButton}>Cancel</button>
+                name="amount"
+                value={form.amount}
+                placeholder='Amount in Yen'
+                onChange={handleChange}
+                required
+            />
+        
+            <button type= "submit">Add</button>
+            <button onClick={handleCancelButton}>Cancel</button>
+        </form>
     </div>
 );
 }
