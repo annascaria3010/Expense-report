@@ -27,7 +27,7 @@ function ExpenseForm({onAddExpense}) {
         
     }
        
-    return( 
+    return(  
     <div>
         <h1>Expense Form</h1>
         <form onSubmit={handleAddButton}>

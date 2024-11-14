@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './Button.css';
 
 function Button({ btn, onClick }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ function Button({ btn, onClick }) {
   };
 
   return (
-    <button onClick={handleClick}>{btn}</button>
+    <button className='addexpbtn' onClick={handleClick}>{btn}</button>
   );
 }
 export default Button

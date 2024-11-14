@@ -19,7 +19,10 @@ const handleButtonClick = () => {
   return (
     <div>
     <Title title={"O-Kane"} />
+    <div className='amount'>
+    Total Expense : $100
     <button onClick={handleButtonClick}>Add Expense</button>
+    </div>
     <ExpenseList expenses={expenses} />
     </div>
   )
