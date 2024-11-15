@@ -11,12 +11,10 @@ function ExpenseForm({onAddExpense}) {
         const { name, value } = e.target;
         setForm((prevForm) => ({ ...prevForm, [name]: value }));
       };
-    const handleCancelButton = () => {
-        navigate("/");
-      };
+   
 
     const handleAddButton = (e) => {
-        
+        e.preventDefault();
         const expenseData={
             id: Date.now(),
             description: form.description,
@@ -26,11 +24,13 @@ function ExpenseForm({onAddExpense}) {
         setForm({ description:'', amount:''});
         
     }
+
+ 
        
     return(  
-    <div>
-        <h1>Expense Form</h1>
-        <form onSubmit={handleAddButton}>
+    <div className='exp-form'>
+        <h1 className='form-heading'>Expense Form</h1>
+        <form className='form' onSubmit={handleAddButton}>
             <input 
                 type='text'
                 name="description"
@@ -47,9 +47,9 @@ function ExpenseForm({onAddExpense}) {
                 onChange={handleChange}
                 required
             />
-        
+
             <button type= "submit">Add</button>
-            <button onClick={handleCancelButton}>Cancel</button>
+            
         </form>
     </div>
 );

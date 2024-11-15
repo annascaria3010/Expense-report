@@ -1,8 +1,9 @@
 import React from 'react';
+import './ExpenseList.css';
 
 function ExpenseList({ expenses }) {
     return (
-      <div>
+      <div className='expenseList'>
         <h2>Expenses</h2>
         <ul className="expense-list">
           {expenses && expenses.length > 0 ? (

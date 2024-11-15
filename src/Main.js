@@ -11,19 +11,29 @@ const Main = () => {
 const navigate = useNavigate();
 
 const [expenses, setExpenses] = useState([]);
+const [showform, setShowform] = useState(false)
 
 const handleButtonClick = () => {
-  navigate("/expenseform");
+  setShowform(prevShowForm => !prevShowForm);
 };
 
+const handleAddExpense = (expenseData) => {
+  setExpenses(prevExpenses => [...prevExpenses,expenseData]);
+  setShowform(false);
+}
+
+
   return (
-    <div>
+    <div className='main'>
+    <div className='container'>
     <Title title={"O-Kane"} />
     <div className='amount'>
     Total Expense : $100
-    <button onClick={handleButtonClick}>Add Expense</button>
+    <button onClick={handleButtonClick}>{showform ? "cancel" : "Add Expense"}</button>
     </div>
+    {showform && <ExpenseForm onAddExpense={handleAddExpense} />}
     <ExpenseList expenses={expenses} />
+    </div>
     </div>
   )
 }

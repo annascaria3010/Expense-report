@@ -1,4 +1,7 @@
 .title {
     display: flex;
     justify-content: center;
+    background-color: rgb(87, 85, 85);
+    color: #fff;
+    padding: 1rem;
 }
