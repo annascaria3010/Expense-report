@@ -25,7 +25,9 @@ function ExpenseForm({onAddExpense}) {
         onAddExpense(expenseData);
         setForm({ description:'', amount:''}); 
         setExpenses(prevExpenses => [...prevExpenses,expenseData]);
-    }
+        navigate('/expenselist')
+        
+    }   
     
     const clear = () => {
         setForm({ description:'', amount:''}); 
@@ -62,7 +64,7 @@ function ExpenseForm({onAddExpense}) {
             <button type= "submit">Add</button>
             <button onClick={clear}>Clear</button>
         </form>
-        <ExpenseList expenses={expenses}/>
+        {/* <ExpenseList expenses={expenses}/> */}
     </div>
 );
 }
