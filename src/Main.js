@@ -1,39 +1,42 @@
 import React, {useState} from 'react';
 import './App.css';
 import Title from './components/Title';
-import ExpenseForm from './components/ExpenseForm';
-// import Button from './components/Atoms/Button';
 import { useNavigate } from "react-router-dom";
 import ExpenseList from './components/ExpenseList';
-
+import ExpenseForm from './components/ExpenseForm';
 
 const Main = () => {
 const navigate = useNavigate();
 
-const [expenses, setExpenses] = useState([]);
-const [showform, setShowform] = useState(false)
+const [totalExpense, setTotalExpense] = useState(0);
+const [showForm, setShowForm] = useState(false)
 
 const handleButtonClick = () => {
-  setShowform(prevShowForm => !prevShowForm);
+  setShowForm(prevShowForm => !prevShowForm);
+  navigate('/expenseform')
 };
 
-const handleAddExpense = (expenseData) => {
-  setExpenses(prevExpenses => [...prevExpenses,expenseData]);
-  setShowform(false);
+const handleAddExpense = (expense) => {
+  setTotalExpense(prevTotal => prevTotal + expense.anount)
 }
 
 
   return (
     <div className='main'>
-    <div className='container'>
-    <Title title={"O-Kane"} />
-    <div className='amount'>
-    Total Expense : $100
-    <button onClick={handleButtonClick}>{showform ? "cancel" : "Add Expense"}</button>
-    </div>
-    {showform && <ExpenseForm onAddExpense={handleAddExpense} />}
-    <ExpenseList expenses={expenses} />
-    </div>
+      <div className='container'>
+
+        <Title title={"O-Kane"} />
+
+        <div className='amount'>
+
+          Total Expense : ¥{totalExpense}
+          <button onClick={handleButtonClick}>{showForm ? "cancel" : "Add Expense"}</button>
+
+        </div>
+        {showForm && <ExpenseForm onAddExpense={handleAddExpense} />}
+        
+
+      </div>
     </div>
   )
 }

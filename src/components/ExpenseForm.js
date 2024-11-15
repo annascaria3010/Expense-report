@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css';
 import { useNavigate } from "react-router-dom";
+import ExpenseList from './ExpenseList';
 
 function ExpenseForm({onAddExpense}) {
     const navigate = useNavigate();
 
     const [form, setForm] = useState({description:'', amount:''});
-    
+    const [expenses,setExpenses] = useState([])
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setForm((prevForm) => ({ ...prevForm, [name]: value }));
@@ -21,14 +23,23 @@ function ExpenseForm({onAddExpense}) {
             amount:parseFloat(form.amount),
         };
         onAddExpense(expenseData);
-        setForm({ description:'', amount:''});
-        
+        setForm({ description:'', amount:''}); 
+        setExpenses(prevExpenses => [...prevExpenses,expenseData]);
+    }
+    
+    const clear = () => {
+        setForm({ description:'', amount:''}); 
+    }
+
+    const home = () => {
+        navigate('/')
     }
 
  
        
     return(  
     <div className='exp-form'>
+    <button onClick={home}>Home</button>
         <h1 className='form-heading'>Expense Form</h1>
         <form className='form' onSubmit={handleAddButton}>
             <input 
@@ -49,8 +60,9 @@ function ExpenseForm({onAddExpense}) {
             />
 
             <button type= "submit">Add</button>
-            
+            <button onClick={clear}>Clear</button>
         </form>
+        <ExpenseList expenses={expenses}/>
     </div>
 );
 }

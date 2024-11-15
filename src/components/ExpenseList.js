@@ -9,8 +9,8 @@ function ExpenseList({ expenses }) {
           {expenses && expenses.length > 0 ? (
             expenses.map((expense) => (
               <li key={expense.id}>
-                <span>{expense.description}</span>
-                <span>${expense.amount.toFixed(2)}</span>
+                <span>{expense.description} - </span>
+                <span>¥{expense.amount.toFixed(2)}</span>
               </li>
             ))
           ) : (
