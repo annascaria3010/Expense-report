@@ -1,10 +1,21 @@
 .exp-form {
-  
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-container {
+  border: 5px solid rgb(112, 8, 8);
+  height: 95%;
+  width: 60%;
 }
 
 .form-heading{
   display: flex;
   justify-content: center;
+  background-color: rgb(112, 8, 8);
+  color: #fff;
+  padding: 1rem;
 }
 
 .form{

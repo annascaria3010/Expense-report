@@ -25,23 +25,25 @@ function ExpenseForm({onAddExpense}) {
         onAddExpense(expenseData);
         setForm({ description:'', amount:''}); 
         setExpenses(prevExpenses => [...prevExpenses,expenseData]);
-        navigate('/expenselist')
+        // navigate('/expenselist')
         
     }   
     
-    const clear = () => {
-        setForm({ description:'', amount:''}); 
+    const cancel = () => {
+        setForm({ description:'', amount:''});
+        navigate('/') 
     }
 
-    const home = () => {
-        navigate('/')
-    }
+    // const home = () => {
+    //     navigate('/')
+    // }
 
  
        
     return(  
     <div className='exp-form'>
-    <button onClick={home}>Home</button>
+    <div className='form-container'>
+    {/* <button onClick={home}>Home</button> */}
         <h1 className='form-heading'>Expense Form</h1>
         <form className='form' onSubmit={handleAddButton}>
             <input 
@@ -62,9 +64,10 @@ function ExpenseForm({onAddExpense}) {
             />
 
             <button type= "submit">Add</button>
-            <button onClick={clear}>Clear</button>
+            <button onClick={cancel}>Cancel</button>
         </form>
-        {/* <ExpenseList expenses={expenses}/> */}
+        <ExpenseList expenses={expenses}/>
+        </div>
     </div>
 );
 }
