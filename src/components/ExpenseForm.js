@@ -33,7 +33,7 @@ function ExpenseForm({onAddExpense}) {
     
     const cancel = () => {
         setForm({ description:'', amount:''});
-        navigate('/') 
+         
     }
 
     const home = () => {
@@ -56,6 +56,7 @@ function ExpenseForm({onAddExpense}) {
                 value={form.description}
                 placeholder='Expense Description'
                 onChange={handleChange}
+                className='form-input'
                 required
             />
             <input 
@@ -64,11 +65,12 @@ function ExpenseForm({onAddExpense}) {
                 value={form.amount}
                 placeholder='Amount in Yen'
                 onChange={handleChange}
+                className='form-input'
                 required
             />
-            <div>
-            <button type= "submit">Add</button>
-            <button onClick={cancel}>Cancel</button>
+            <div className='btns'>
+            <button type="submit" className='form-button add-button'>Add</button>
+            <button type="button" onClick={cancel} className='form-button cancel-button'>Cancel</button>
             </div>
         </form>
         <ExpenseList expenses={expenses}/>

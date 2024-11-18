@@ -3,7 +3,7 @@ import './ExpenseList.css';
 
 function ExpenseList({ expenses }) {
     return (
-      <div className='expenseList'>
+      <div className='List'>
         <h2>Expenses</h2>
         <ul className="expense-list">
           {expenses && expenses.length > 0 ? (
@@ -14,7 +14,7 @@ function ExpenseList({ expenses }) {
               </li>
             ))
           ) : (
-            <p>No expenses found</p>
+            <p>No expenses yet</p>
           )}
         </ul>
       </div>

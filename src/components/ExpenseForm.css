@@ -30,9 +30,49 @@
   justify-content: center;
   margin: 3rem;
   /* margin-right: 10rem; */
- flex-direction: column;
+  flex-direction: column;
+  
+}
+.form-input {
+  display: block; /* Ensures the inputs take a full line */
+  width: 100%; /* Adjust width as needed */
+  margin-bottom: 1rem; /* Adds space between inputs */
+  padding: 0.5rem; /* Adds padding inside the inputs */
+  font-size: 1rem; /* Adjust font size */
+  border: 1px solid rgb(112, 8, 8); /* Optional: Styling for borders */
+  border-radius: 4px; /* Optional: Rounded corners */
 }
 
 .form-text {
   padding: 2rem;
+}
+.btns {
+  display: flex;
+  justify-content: space-between; /* Ensures buttons are spaced apart */
+  gap: 1rem; /* Adds space between buttons */
+}
+.form-button {
+  padding: 0.5rem 1rem; /* Adds padding for buttons */
+  font-size: 1rem; /* Adjust font size */
+  border: none; /* Removes button borders */
+  border-radius: 4px; /* Optional: Rounded corners */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
+.add-button {
+  background-color: rgb(112, 8, 8);
+  color: #fff;
+}
+
+.add-button:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+/* Cancel button in green */
+.cancel-button {
+  background-color: green;
+  color: #fff;
+}
+
+.cancel-button:hover {
+  background-color: darkgreen; /* Darker green on hover */
 }
