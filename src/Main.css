@@ -10,17 +10,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    font-size: 1.5rem; /* Increase font size of Total Expense */
+    font-weight: bold; /* Make it bold for emphasis (optional) */
+    margin-bottom: 1rem;
+    color: rgb(112, 8, 8);
 }
 
 .addExpBtn{
     margin: 1rem;
     background-color:rgb(112, 8, 8) ;
     color: #fff;
-    padding: 5px;
+    padding: 0.8rem ;
     border-radius: 5px;
-    border: #fff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
 }
+.addExpBtn:hover {
+    background-color: rgb(160, 39, 39); /* Optional: Darker color on hover */
+  }
 .container{
     border: 5px solid rgb(112, 8, 8);
     height: 95%;

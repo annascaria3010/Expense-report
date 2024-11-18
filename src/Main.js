@@ -28,7 +28,7 @@ const handleAddExpense = (expense) => {
 
         <div className='amount'>
 
-          <p >Total Expense : ¥{totalExpense}</p>
+          <p>Total Expense : ¥{totalExpense}</p>
           <button className='addExpBtn' onClick={handleButtonClick}>Add Expense</button>
 
         </div>

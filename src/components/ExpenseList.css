@@ -2,6 +2,41 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+    padding: 0 1rem;
+}
+.list-heading{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(112, 8, 8);
+    color: #fff;
+    padding: 1rem;
+    
 }
 
+.expense-table {
+    width: 100%; 
+    border-collapse: collapse; /* Removes space between cells */
+    
+  }
+  
+  .expense-table th,
+  .expense-table td {
+    border: 1px solid rgb(112, 8, 8); /* Adds border to table cells */
+    padding: 0.8rem; /* Adds padding inside cells */
+    text-align: left; /* Aligns text to the left */
+  }
+  
+  .expense-table th {
+    background-color: rgb(112, 8, 8); /* Light background for header */
+    font-weight: bold; /* Makes header text bold */
+    color: #fff;
+  }
+  
+  .expense-table tr:nth-child(even) {
+    background-color: rgb(146, 57, 57); /* Alternating row colors for readability */
+  }
+  
+  /* .expense-table tr:hover {
+    background-color: #f1f1f1; 
+  }
+   */
