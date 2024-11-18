@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ExpenseList from './components/ExpenseList';
 import ExpenseForm from './components/ExpenseForm';
 
+
 const Main = () => {
 const navigate = useNavigate();
 

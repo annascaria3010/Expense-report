@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './ExpenseForm.css';
 import { useNavigate } from "react-router-dom";
 import ExpenseList from './ExpenseList';
+import { MdArrowBack } from 'react-icons/md';
+
 
 function ExpenseForm({onAddExpense}) {
     const navigate = useNavigate();
@@ -34,17 +36,19 @@ function ExpenseForm({onAddExpense}) {
         navigate('/') 
     }
 
-    // const home = () => {
-    //     navigate('/')
-    // }
+    const home = () => {
+        navigate('/')
+    }
 
  
        
     return(  
     <div className='exp-form'>
     <div className='form-container'>
-    {/* <button onClick={home}>Home</button> */}
+        <div>
+        <button className='homeBtn'  onClick={home}><MdArrowBack /></button>
         <h1 className='form-heading'>Expense Form</h1>
+        </div>
         <form className='form' onSubmit={handleAddButton}>
             <input 
                 type='text'
@@ -62,9 +66,10 @@ function ExpenseForm({onAddExpense}) {
                 onChange={handleChange}
                 required
             />
-
+            <div>
             <button type= "submit">Add</button>
             <button onClick={cancel}>Cancel</button>
+            </div>
         </form>
         <ExpenseList expenses={expenses}/>
         </div>
