@@ -1,18 +1,18 @@
 import React, { createContext, useState } from 'react';
 
-const ExpenseContext = createContext();
+const ExpenseContext = createContext(); // Create context
 
 export const ExpenseProvider = ({ children }) => {
-  const [totalExpense, setTotalExpense] = useState(0);
   const [expenses, setExpenses] = useState([]);
+  const [totalExpense, setTotalExpense] = useState(0);
 
   const addExpense = (expense) => {
-    setTotalExpense((prevTotal) => prevTotal + expense.amount);
     setExpenses((prevExpenses) => [...prevExpenses, expense]);
+    setTotalExpense((prevTotal) => prevTotal + expense.amount);
   };
 
   return (
-    <ExpenseContext.Provider value={{ totalExpense, expenses, addExpense }}>
+    <ExpenseContext.Provider value={{ expenses, totalExpense, addExpense }}>
       {children}
     </ExpenseContext.Provider>
   );

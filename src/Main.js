@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import './App.css';
 import Title from './components/Title';
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,8 @@ import ExpenseContext from './components/ExpenseContext';
 
 const Main = () => {
 const navigate = useNavigate();
+
+
 
 const [totalExpense, expenses] = useContext(ExpenseContext);
 
