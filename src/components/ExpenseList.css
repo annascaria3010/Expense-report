@@ -21,9 +21,9 @@
   
   .expense-table th,
   .expense-table td {
-    border: 1px solid rgb(112, 8, 8); /* Adds border to table cells */
-    padding: 0.8rem; /* Adds padding inside cells */
-    text-align: left; /* Aligns text to the left */
+    border: 1px solid rgb(112, 8, 8); 
+    padding: 0.8rem; 
+    text-align: left; 
   }
   
   .expense-table th {
@@ -32,9 +32,9 @@
     color: #fff;
   }
   
-  .expense-table tr:nth-child(even) {
-    background-color: rgb(146, 57, 57); /* Alternating row colors for readability */
-  }
+  /* .expense-table tr:nth-child(even) {
+    background-color: rgb(146, 57, 57);
+  } */
   
   /* .expense-table tr:hover {
     background-color: #f1f1f1; 

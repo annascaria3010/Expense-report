@@ -27,7 +27,6 @@ function ExpenseForm({onAddExpense}) {
         onAddExpense(expenseData);
         setForm({ description:'', amount:''}); 
         setExpenses(prevExpenses => [...prevExpenses,expenseData]);
-        // navigate('/expenselist')
         
     }   
     
