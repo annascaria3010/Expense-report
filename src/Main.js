@@ -3,15 +3,11 @@ import './App.css';
 import Title from './components/Title';
 import { useNavigate } from "react-router-dom";
 import ExpenseList from './components/ExpenseList';
-import ExpenseForm from './components/ExpenseForm';
 import ExpenseContext from './components/ExpenseContext';
 
 const Main = () => {
 const navigate = useNavigate();
-
-
-
-const [totalExpense] = useContext(ExpenseContext);
+const {totalExpense} = useContext(ExpenseContext);
 
 const handleButtonClick = () => {
   navigate('/expenseform')
