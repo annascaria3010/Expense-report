@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './ExpenseList.css';
+import ExpenseContext from './ExpenseContext';
 
-function ExpenseList({ expenses }) {
+function ExpenseList({}) {
+  const { expenses } = useContext(ExpenseContext);
     return (
       <div className='List'>
       <h2 className='list-heading'>Expenses</h2>

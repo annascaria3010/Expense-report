@@ -5,12 +5,12 @@ import ExpenseList from './ExpenseList';
 import { MdArrowBack } from 'react-icons/md';
 import ExpenseContext from './ExpenseContext';
 
-function ExpenseForm({onAddExpense}) {
+function ExpenseForm() {
     const navigate = useNavigate();
-    const { addExpense } = useContext(ExpenseContext);
+    const { addExpense, expenses } = useContext(ExpenseContext);
 
     const [form, setForm] = useState({description:'', amount:''});
-    const [expenses,setExpenses] = useState([])
+    // const [expenses,setExpenses] = useState([])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,9 +25,9 @@ function ExpenseForm({onAddExpense}) {
             description: form.description,
             amount:parseFloat(form.amount),
         };
-        onAddExpense(expenseData);
+        addExpense(expenseData);
         setForm({ description:'', amount:''}); 
-        setExpenses(prevExpenses => [...prevExpenses,expenseData]);
+        // setExpenses(prevExpenses => [...prevExpenses,expenseData]);
         
     }   
     

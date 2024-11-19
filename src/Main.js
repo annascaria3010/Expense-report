@@ -11,7 +11,7 @@ const navigate = useNavigate();
 
 
 
-const [totalExpense, expenses] = useContext(ExpenseContext);
+const [totalExpense] = useContext(ExpenseContext);
 
 const handleButtonClick = () => {
   navigate('/expenseform')
@@ -34,7 +34,7 @@ const handleButtonClick = () => {
           <button className='addExpBtn' onClick={handleButtonClick}>Add Expense</button>
 
         </div>
-        <ExpenseList expenses={expenses}/>
+        <ExpenseList/>
 
       </div>
     </div>
