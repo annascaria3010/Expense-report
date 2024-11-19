@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext,useState } from 'react';
 import './ExpenseForm.css';
 import { useNavigate } from "react-router-dom";
 import ExpenseList from './ExpenseList';
 import { MdArrowBack } from 'react-icons/md';
-
+import ExpenseContext from './ExpenseContext';
 
 function ExpenseForm({onAddExpense}) {
     const navigate = useNavigate();
+    const { addExpense } = useContext(ExpenseContext);
 
     const [form, setForm] = useState({description:'', amount:''});
     const [expenses,setExpenses] = useState([])
