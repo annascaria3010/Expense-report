@@ -11,10 +11,13 @@ export const ExpenseProvider = ({ children }) => {
     setTotalExpense((prevTotal) => prevTotal + expense.amount);
   };
 
-  
+  const deleteExpense =(expense) => {
+    setExpenses((prevExpenses) => [...expense, prevExpenses]);
+    setTotalExpense((prevTotal) => prevTotal - expense.amount);
+  }
 
   return (
-    <ExpenseContext.Provider value={{ expenses, totalExpense, addExpense }}>
+    <ExpenseContext.Provider value={{ expenses, totalExpense, addExpense, deleteExpense }}>
       {children}
     </ExpenseContext.Provider>
   );

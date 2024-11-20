@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState } from 'react';
 import './ExpenseList.css';
 import ExpenseContext from './ExpenseContext';
 import { AiFillEdit } from 'react-icons/ai';
@@ -7,13 +7,8 @@ import { FaTrash } from 'react-icons/fa';
 function ExpenseList({}) {
   const { expenses } = useContext(ExpenseContext);
 
-  const handleEdit = () => {
-   
-  }
-
-  const handleDelete = () => {
-
-  }
+  
+  
     return (
       <div className='List'>
       <h2 className='list-heading'>Expenses</h2>
