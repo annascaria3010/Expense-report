@@ -15,35 +15,24 @@
 
 .expense-table {
     width: 100%; 
-    border-collapse: collapse; /* Removes space between cells */
-    table-layout: fixed;
+    border-collapse: collapse; 
   }
   
   .expense-table th,
   .expense-table td {
     border: 1px solid rgb(112, 8, 8); 
     padding: 0.8rem; 
-    text-align: left; 
-    vertical-align: middle;
+    text-align: center; 
+    
   }
   
   .expense-table th {
-    background-color: rgb(112, 8, 8); /* Light background for header */
-    font-weight: bold; /* Makes header text bold */
+    background-color: rgb(112, 8, 8); 
+    font-weight: bold; 
     color: #fff;
   }
-
-  .expense-table td {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .icon-buttons {
-    margin-left: auto; /* Pushes buttons to the far right */
-    display: flex;
-    gap: 10px; /* Adds spacing between buttons */
+  .expense-table tr{
+    width: 100%;
   }
 
   .list-btn{
@@ -51,7 +40,7 @@
     background: none;
     cursor: pointer;
     padding: 5px;
-    
+    margin-left: 5px;
   }
 
   .edit-btn {
@@ -66,16 +55,17 @@
   
 
   .delete-btn{
-    color: #F44336; /* Red for delete */
+    color: #fd2011; /* Red for delete */
     font-size: 16px;
   }
   
   .delete-btn:hover {
-    color: #e53935;
-    transform: scale(1.2); /* Slight zoom effect on hover */
-  }
+  color: #e53935;
+  transform: scale(1.2); /* Slight zoom effect on hover */
+}
   /* .expense-table tr:nth-child(even) {
-    background-color: rgb(146, 57, 57);
+    background-color: rgb(114, 8, 8);
+    color: #fff;
   } */
   
   /* .expense-table tr:hover {

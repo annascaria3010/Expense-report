@@ -11,6 +11,8 @@ export const ExpenseProvider = ({ children }) => {
     setTotalExpense((prevTotal) => prevTotal + expense.amount);
   };
 
+  
+
   return (
     <ExpenseContext.Provider value={{ expenses, totalExpense, addExpense }}>
       {children}

@@ -6,6 +6,14 @@ import { FaTrash } from 'react-icons/fa';
 
 function ExpenseList({}) {
   const { expenses } = useContext(ExpenseContext);
+
+  const handleEdit = () => {
+   
+  }
+
+  const handleDelete = () => {
+
+  }
     return (
       <div className='List'>
       <h2 className='list-heading'>Expenses</h2>
@@ -15,25 +23,20 @@ function ExpenseList({}) {
             <tr>
               <th>Description</th>
               <th>Amount (¥)</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {expenses.map((expense) => (
               <tr key={expense.id}>
                 <td>{expense.description}</td>
-              
-                <td  >
-                  {expense.amount.toFixed(2)} 
-                  <div className="icon-buttons">
-                <button className="list-btn edit-btn">
-                  <AiFillEdit />
-                </button>
-                <button className="list-btn delete-btn">
-                  <FaTrash />
-                </button>
-              </div>
-                </td>
-                
+                <td >{expense.amount.toFixed(2)}</td>
+                <td><button  onClick= {handleEdit} className='list-btn edit-btn'>
+                    <AiFillEdit />
+                  </button>
+                  <button onClick={handleDelete} className='list-btn delete-btn'>
+                    <FaTrash />
+                  </button></td>
               </tr>
             ))}
           </tbody>
