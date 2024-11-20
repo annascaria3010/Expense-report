@@ -1,6 +1,8 @@
 import React, {useContext} from 'react';
 import './ExpenseList.css';
 import ExpenseContext from './ExpenseContext';
+import { AiFillEdit } from 'react-icons/ai';
+import { FaTrash } from 'react-icons/fa';
 
 function ExpenseList({}) {
   const { expenses } = useContext(ExpenseContext);
@@ -19,7 +21,19 @@ function ExpenseList({}) {
             {expenses.map((expense) => (
               <tr key={expense.id}>
                 <td>{expense.description}</td>
-                <td>{expense.amount.toFixed(2)}</td>
+              
+                <td  >
+                  {expense.amount.toFixed(2)} 
+                  <div className="icon-buttons">
+                <button className="list-btn edit-btn">
+                  <AiFillEdit />
+                </button>
+                <button className="list-btn delete-btn">
+                  <FaTrash />
+                </button>
+              </div>
+                </td>
+                
               </tr>
             ))}
           </tbody>
