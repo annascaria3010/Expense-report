@@ -21,7 +21,7 @@ function ExpenseList({}) {
   };
 
   
-  
+
   const handleEdit = (expense) => {
     setEditId(expense.id);
     setEditForm({ description: expense.description, amount: expense.amount });
@@ -35,7 +35,7 @@ function ExpenseList({}) {
         : expense
     );
     setExpenses(updatedExpenses);
-    setEditId(null); // Exit edit mode
+    setEditId(null);
   };
   
   
@@ -54,43 +54,16 @@ function ExpenseList({}) {
           <tbody>
             {expenses.map((expense) => (
               <tr key={expense.id}>
-              {editId === expense.id ? (
-                  <>
-                    <td>
-                      <input
-                        type="text"
-                        value={editForm.description}
-                        onChange={(e) => setEditForm({ ...editForm, description: e.target.value })}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="number"
-                        value={editForm.amount}
-                        onChange={(e) => setEditForm({ ...editForm, amount: e.target.value })}
-                      />
-                    </td>
-                    <td>
-                      <button
-                        onClick={() => handleSave(expense.id)}
-                        className="list-btn save-btn"
-                      >
-                        Save
-                      </button>
-                    </td>
-                  </>
-                ) : (
-                  <>
+              
                 <td>{expense.description}</td>
                 <td >{expense.amount.toFixed(2)}</td>
-                <td><button  onClick= {handleEdit} className='list-btn edit-btn'>
+                <td><button  onClick= {() => handleEdit(expense)} className='list-btn edit-btn'>
                     <AiFillEdit />
                   </button>
                   <button onClick={() => handleDelete(expense.id)} className='list-btn delete-btn'>
                     <FaTrash />
                   </button></td>
-                  </>
-                )}
+                  
               </tr>
             ))}
           </tbody>

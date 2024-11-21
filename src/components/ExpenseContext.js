@@ -5,7 +5,8 @@ const ExpenseContext = createContext(); // Create context
 export const ExpenseProvider = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
   const [totalExpense, setTotalExpense] = useState(0);
-
+  const [editingExpense, setEditingExpense] = useState(null);
+    
   const addExpense = (expense) => {
     setExpenses((prevExpenses) => [...prevExpenses, expense]);
     setTotalExpense((prevTotal) => prevTotal + expense.amount);

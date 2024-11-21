@@ -44,18 +44,18 @@
   }
 
   .edit-btn {
-    color: #4CAF50; /* Green for edit */
+    color: #1d531f; /* Green for edit */
     font-size: 16px;
     
   }
   .edit-btn:hover {
     color: #45a049;
-    transform: scale(1.2); /* Slight zoom effect on hover */
+    transform: scale(1.5); /* Slight zoom effect on hover */
   }
   
 
   .delete-btn{
-    color: #fd2011; /* Red for delete */
+    color: rgb(112, 8, 8); /* Red for delete */
     font-size: 16px;
   }
   
