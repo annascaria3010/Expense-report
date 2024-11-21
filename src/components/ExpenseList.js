@@ -5,17 +5,23 @@ import { AiFillEdit } from 'react-icons/ai';
 import { FaTrash } from 'react-icons/fa';
 
 function ExpenseList({}) {
-  const { expenses, setExpenses } = useContext(ExpenseContext);
+  const { expenses, setExpenses, totalExpense, setTotalExpense } = useContext(ExpenseContext);
   const [editId, setEditId] = useState(null);
   const [editForm, setEditForm] = useState({ description: '', amount: '' });
 
   // Delete Expense
   const handleDelete = (id) => {
+    const expenseToDelete = expenses.find((expense) => expense.id===id)
+    
     const updatedExpenses = expenses.filter((expense) => expense.id !== id);
     setExpenses(updatedExpenses);
+
+    if(expenseToDelete)
+    setTotalExpense(totalExpense - expenseToDelete.amount);
   };
 
-  // Toggle Edit Mode
+  
+  
   const handleEdit = (expense) => {
     setEditId(expense.id);
     setEditForm({ description: expense.description, amount: expense.amount });
