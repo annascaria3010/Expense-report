@@ -1,13 +1,15 @@
 import React, {useContext, useState } from 'react';
 import './ExpenseList.css';
+import { useNavigate } from "react-router-dom";
 import ExpenseContext from './ExpenseContext';
 import { AiFillEdit } from 'react-icons/ai';
 import { FaTrash } from 'react-icons/fa';
 
 function ExpenseList({}) {
-  const { expenses, setExpenses, totalExpense, setTotalExpense } = useContext(ExpenseContext);
+  const navigate = useNavigate();
+  const { expenses, setExpenses, totalExpense, setTotalExpense,setEditingExpense } = useContext(ExpenseContext);
   const [editId, setEditId] = useState(null);
-  const [editForm, setEditForm] = useState({ description: '', amount: '' });
+  
 
   // Delete Expense
   const handleDelete = (id) => {
@@ -23,21 +25,9 @@ function ExpenseList({}) {
   
 
   const handleEdit = (expense) => {
-    setEditId(expense.id);
-    setEditForm({ description: expense.description, amount: expense.amount });
-  };
-
-  // Save Edits
-  const handleSave = (id) => {
-    const updatedExpenses = expenses.map((expense) =>
-      expense.id === id
-        ? { ...expense, description: editForm.description, amount: parseFloat(editForm.amount) }
-        : expense
-    );
-    setExpenses(updatedExpenses);
-    setEditId(null);
-  };
-  
+    setEditingExpense(expense);
+    navigate('/expenseform');
+  };  
   
     return (
       <div className='List'>

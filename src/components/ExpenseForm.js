@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react';
+import React, { useContext,useEffect,useState } from 'react';
 import './ExpenseForm.css';
 import { useNavigate } from "react-router-dom";
 import ExpenseList from './ExpenseList';
@@ -7,10 +7,19 @@ import ExpenseContext from './ExpenseContext';
 
 function ExpenseForm() {
     const navigate = useNavigate();
-    const { addExpense, expenses } = useContext(ExpenseContext);
+    const { addExpense, updateExpenses, expenses, setEditingExpense, editingExpense } = useContext(ExpenseContext);
 
     const [form, setForm] = useState({description:'', amount:''});
     // const [expenses,setExpenses] = useState([])
+
+    useEffect(() => {
+        if (editingExpense) {
+            setForm ({ 
+                description: editingExpense.description,
+                amount: editingExpense.amount,
+            });
+        }
+    },[editingExpense]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,13 +30,20 @@ function ExpenseForm() {
     const handleAddButton = (e) => {
         e.preventDefault();
         const expenseData={
-            id: Date.now(),
+            ...editingExpense,
             description: form.description,
-            amount:parseFloat(form.amount),
-        };
-        addExpense(expenseData);
-        setForm({ description:'', amount:''}); 
-        // setExpenses(prevExpenses => [...prevExpenses,expenseData]);
+            amount: parseFloat(form.amount),
+          };
+      
+          if (editingExpense) {
+            updateExpenses(expenseData);
+            setEditingExpense(null);
+          } else {
+            addExpense({ ...expenseData, id: Date.now() });
+          }
+      
+          setForm({ description: '', amount: '' }); 
+        
         
     }   
     
@@ -69,7 +85,7 @@ function ExpenseForm() {
                 required
             />
             <div className='btns'>
-            <button type="submit" className='form-button add-button'>Add</button>
+            <button type="submit" className='form-button add-button'>{editingExpense ? 'Save' : 'Add'}</button>
             <button type="button" onClick={cancel} className='form-button cancel-button'>Cancel</button>
             </div>
         </form>
