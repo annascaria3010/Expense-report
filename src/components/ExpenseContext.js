@@ -16,8 +16,13 @@ export const ExpenseProvider = ({ children }) => {
     setExpenses((prevExpenses) => 
       prevExpenses.map((expense) => expense.id === updatedExpense.id ? updatedExpense : expense)
     )
-  }
+  
 
+  const oldExpense = expenses.find((expense) => expense.id === updatedExpense.id);
+  if(oldExpense) {
+    setTotalExpense ((prevTotal) => prevTotal-oldExpense.amount + updatedExpense.amount);
+  }
+};
   return (
     <ExpenseContext.Provider value={{ expenses, setExpenses,totalExpense,setTotalExpense, addExpense, editingExpense,setEditingExpense, updateExpenses }}>
       {children}
