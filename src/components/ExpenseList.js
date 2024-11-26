@@ -31,7 +31,7 @@ function ExpenseList({}) {
   
     return (
       <div className='List'>
-      <h2 className='list-heading'>Expenses</h2>
+      <h2 className='list-heading'>History</h2>
       {expenses && expenses.length > 0 ? (
         <table className="expense-table">
           <thead>
@@ -59,7 +59,7 @@ function ExpenseList({}) {
           </tbody>
         </table>
       ) : (
-        <p>No expenses yet</p>
+        <p>No history yet</p>
       )}
     </div>
     );
