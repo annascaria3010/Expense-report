@@ -28,7 +28,7 @@ const handleButtonClick = () => {
 
           <p>Total Expense : ¥{totalExpense.toFixed(2)}</p>
           <button className='addExpBtn' onClick={handleButtonClick}>Add Expense</button>
-
+          <button className='addExpBtn' onClick={handleButtonClick}>Add Income</button>
         </div>
         <ExpenseList/>
 
