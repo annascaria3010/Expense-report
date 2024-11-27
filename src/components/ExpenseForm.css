@@ -33,9 +33,16 @@
   flex-direction: column;
   
 }
-
-select{
- 
+.form-opt {
+  /* border: 1px solid rgb(112, 8, 8);
+  border-radius: 4px;
+  font-size: 1rem; */
+  background-color: #f10e0e;
+  border: 1px solid #84f306;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: none;
+  transition: border-color 0.2s ease-in-out;
 }
 
 .form-input {

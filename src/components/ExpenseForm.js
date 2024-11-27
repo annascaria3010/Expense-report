@@ -82,6 +82,8 @@ function ExpenseForm() {
                 options={options}
                 onChange={handledrop}
                 placeholder="Select Category"
+                className='form-opt'
+                required
             />
 
             <input 
