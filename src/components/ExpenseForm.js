@@ -24,14 +24,14 @@ function ExpenseForm() {
     },[editingExpense]);
 
     const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' }
+        { value: 'expense', label: 'Expense' },
+        { value: 'income', label: 'Income' },
+        
       ];
 
       
         const handledrop = (selectedOption) => {
-          console.log('Selected option:', selectedOption);
+          
         };
 
     const handleChange = (e) => {
@@ -69,10 +69,6 @@ function ExpenseForm() {
         navigate('/')
     }
 
-
-
- 
-       
     return(  
     <div className='exp-form'>
     <div className='form-container'>
@@ -82,11 +78,11 @@ function ExpenseForm() {
         </div>
         <form className='form' onSubmit={handleAddButton}>
             
-        <Select
-      options={options}
-      onChange={handleChange}
-      placeholder="Select a flavor"
-    />
+            <Select
+                options={options}
+                onChange={handledrop}
+                placeholder="Select Category"
+            />
 
             <input 
                 type='text'

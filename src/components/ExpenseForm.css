@@ -33,6 +33,11 @@
   flex-direction: column;
   
 }
+
+select{
+ 
+}
+
 .form-input {
   display: block; /* Ensures the inputs take a full line */
   width: 100%; /* Adjust width as needed */
