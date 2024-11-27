@@ -59,7 +59,7 @@ function ExpenseList({}) {
           </tbody>
         </table>
       ) : (
-        <p>No history yet</p>
+        <p>Make History</p>
       )}
     </div>
     );

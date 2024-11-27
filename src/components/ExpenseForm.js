@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import ExpenseList from './ExpenseList';
 import { MdArrowBack } from 'react-icons/md';
 import ExpenseContext from './ExpenseContext';
+import Select from 'react-select';
+
 
 function ExpenseForm() {
     const navigate = useNavigate();
@@ -20,6 +22,17 @@ function ExpenseForm() {
             });
         }
     },[editingExpense]);
+
+    const options = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+      ];
+
+      
+        const handledrop = (selectedOption) => {
+          console.log('Selected option:', selectedOption);
+        };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -56,6 +69,8 @@ function ExpenseForm() {
         navigate('/')
     }
 
+
+
  
        
     return(  
@@ -66,6 +81,13 @@ function ExpenseForm() {
         <h1 className='form-heading'>Expense Form</h1>
         </div>
         <form className='form' onSubmit={handleAddButton}>
+            
+        <Select
+      options={options}
+      onChange={handleChange}
+      placeholder="Select a flavor"
+    />
+
             <input 
                 type='text'
                 name="description"
