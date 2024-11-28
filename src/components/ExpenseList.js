@@ -46,7 +46,14 @@ function ExpenseList({}) {
               <tr key={expense.id}>
               
                 <td>{expense.description}</td>
-                <td >{expense.amount.toFixed(2)}</td>
+                
+                <td style={{ color: expense.category === 'income' ? 'green' : 'red' }}>
+                 {expense.category === 'income' 
+                  ? `+${expense.amount.toFixed(2)}` 
+                  : `-${expense.amount.toFixed(2)}`}
+  </td>
+                
+                
                 <td><button  onClick= {() => handleEdit(expense)} className='list-btn edit-btn'>
                     <AiFillEdit />
                   </button>
