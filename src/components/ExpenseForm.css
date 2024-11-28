@@ -33,19 +33,8 @@
   flex-direction: column;
   
 }
-.form-opt {
-  /* border: 1px solid rgb(112, 8, 8);
-  border-radius: 4px;
-  font-size: 1rem; */
-  background-color: #f10e0e;
-  border: 1px solid #84f306;
-  border-radius: 8px;
-  padding: 5px;
-  box-shadow: none;
-  transition: border-color 0.2s ease-in-out;
-}
 
-.form-input {
+.form-input{
   display: block; /* Ensures the inputs take a full line */
   width: 100%; /* Adjust width as needed */
   margin-bottom: 1rem; /* Adds space between inputs */
@@ -55,9 +44,19 @@
   border-radius: 4px; /* Optional: Rounded corners */
 }
 
-.form-text {
-  padding: 2rem;
+.select-dropdown  {
+  border: none; /* Remove outer border */
+  box-shadow: none; /* Remove any focus shadows */
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgb(112, 8, 8);
+  border-radius: 4px;
+  font-size: 16px;
+  
 }
+
+
+
 .btns {
   display: flex;
   justify-content: space-between; /* Ensures buttons are spaced apart */

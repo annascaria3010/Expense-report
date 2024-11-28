@@ -82,7 +82,7 @@ function ExpenseForm() {
                 options={options}
                 onChange={handledrop}
                 placeholder="Select Category"
-                className='form-opt'
+                className='form-opt select-dropdown'
                 required
             />
 
