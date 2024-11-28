@@ -12,7 +12,7 @@ function ExpenseForm() {
     const { addExpense, updateExpenses, expenses, setEditingExpense, editingExpense } = useContext(ExpenseContext);
 
     const [form, setForm] = useState({description:'', amount:''});
-    // const [expenses,setExpenses] = useState([])
+    const [selectedOption, setSelectedOption] = useState(null);
 
     useEffect(() => {
         if (editingExpense) {
@@ -20,6 +20,7 @@ function ExpenseForm() {
                 description: editingExpense.description,
                 amount: editingExpense.amount,
             });
+            setSelectedOption({ value: editingExpense.category, label: editingExpense.category });
         }
     },[editingExpense]);
 
@@ -31,7 +32,7 @@ function ExpenseForm() {
 
       
         const handledrop = (selectedOption) => {
-          
+            setSelectedOption(selectedOption);
         };
 
     const handleChange = (e) => {
@@ -46,6 +47,7 @@ function ExpenseForm() {
             ...editingExpense,
             description: form.description,
             amount: parseFloat(form.amount),
+            category: selectedOption?.value || '',
           };
       
           if (editingExpense) {
@@ -56,13 +58,13 @@ function ExpenseForm() {
           }
       
           setForm({ description: '', amount: '' }); 
-        
+          setSelectedOption(null);
         
     }   
     
     const cancel = () => {
-        setForm({ description:'', amount:''});
-         
+        setForm({ dropdown:'',description:'', amount:''});
+        setSelectedOption(null);
     }
 
     const home = () => {
@@ -80,6 +82,7 @@ function ExpenseForm() {
             
             <Select
                 options={options}
+                value={selectedOption}
                 onChange={handledrop}
                 placeholder="Select Category"
                 className='form-opt select-dropdown'
@@ -90,7 +93,7 @@ function ExpenseForm() {
                 type='text'
                 name="description"
                 value={form.description}
-                placeholder='Expense Description'
+                placeholder='Description'
                 onChange={handleChange}
                 className='form-input'
                 required
