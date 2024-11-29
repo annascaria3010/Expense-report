@@ -9,7 +9,9 @@ export const ExpenseProvider = ({ children }) => {
     
   const addExpense = (expense) => {
     setExpenses((prevExpenses) => [...prevExpenses, expense]);
-    setTotalExpense((prevTotal) => prevTotal + expense.amount);
+    {expense.category === 'income' 
+      ?setTotalExpense((prevTotal) => prevTotal + expense.amount)
+    : setTotalExpense((prevTotal) => prevTotal - expense.amount)};
   };
 
   const updateExpenses = (updatedExpense) => {
@@ -20,7 +22,9 @@ export const ExpenseProvider = ({ children }) => {
 
   const oldExpense = expenses.find((expense) => expense.id === updatedExpense.id);
   if(oldExpense) {
-    setTotalExpense ((prevTotal) => prevTotal-oldExpense.amount + updatedExpense.amount);
+    {updatedExpense.category === 'income' 
+      ? setTotalExpense ((prevTotal) => prevTotal-oldExpense.amount + updatedExpense.amount)
+  : setTotalExpense ((prevTotal) => prevTotal-oldExpense.amount - updatedExpense.amount)};
   }
 };
   return (
