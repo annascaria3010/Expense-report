@@ -7,16 +7,11 @@ import ExpenseContext from './components/ExpenseContext';
 
 const Main = () => {
 const navigate = useNavigate();
-const {totalExpense} = useContext(ExpenseContext);
+const {settotalExpense} = useContext(ExpenseContext);
 
 const handleButtonClick = () => {
   navigate('/expenseform')
 };
-
-// const handleAddExpense = (expense) => {
-//   setTotalExpense(prevTotal => prevTotal + expense.amount)
-// }
-
 
   return (
     <div className='main'>
@@ -26,9 +21,8 @@ const handleButtonClick = () => {
 
         <div className='amount'>
 
-          <p>Total Balance : {totalExpense.toFixed(2)}¥</p>
+          <p>Total Balance : {settotalExpense.toFixed(2)}¥</p>
           <button className='addExpBtn' onClick={handleButtonClick}>Add Expense</button>
-          <button className='addExpBtn' onClick={handleButtonClick}>Add Income</button>
         </div>
         <ExpenseList/>
 
