@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './App.css';
 import Title from './components/Title';
 import { useNavigate } from "react-router-dom";
@@ -7,11 +7,15 @@ import ExpenseContext from './components/ExpenseContext';
 
 const Main = () => {
 const navigate = useNavigate();
-const {settotalExpense} = useContext(ExpenseContext);
+const {totalExpense} = useContext(ExpenseContext);
 
 const handleButtonClick = () => {
   navigate('/expenseform')
 };
+useEffect(() => {
+  console.log("Updated totalExpense:", totalExpense);
+}, [totalExpense]);
+
 
   return (
     <div className='main'>
@@ -21,7 +25,7 @@ const handleButtonClick = () => {
 
         <div className='amount'>
 
-          <p>Total Balance : {settotalExpense.toFixed(2)}¥</p>
+          <p>Total Balance : {totalExpense.toFixed(2)}¥</p>
           <button className='addExpBtn' onClick={handleButtonClick}>Add Expense</button>
         </div>
         <ExpenseList/>

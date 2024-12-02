@@ -24,10 +24,12 @@ export const ExpenseProvider = ({ children }) => {
   if(oldExpense) {
      setTotalExpense ((prevTotal) => {
       if (oldExpense.category === 'income' && updatedExpense.category=== 'expense') {
-        prevTotal= prevTotal-oldExpense.amount - updatedExpense.amount
-      }
+        setTotalExpense ((prevTotal) => {prevTotal= prevTotal-oldExpense.amount - updatedExpense.amount
+      })
+    }
       else if (oldExpense.category ==='expense' && updatedExpense.category=== 'income') {
-        prevTotal= prevTotal + oldExpense.amount + updatedExpense.amount
+        setTotalExpense ((prevTotal) => { prevTotal= prevTotal + oldExpense.amount + updatedExpense.amount
+        })
       }
       else if (oldExpense.category=== updatedExpense.category) {
         if (oldExpense.category=== 'income') {
