@@ -22,10 +22,25 @@ export const ExpenseProvider = ({ children }) => {
 
   const oldExpense = expenses.find((expense) => expense.id === updatedExpense.id);
   if(oldExpense) {
-     setTotalExpense ((prevTotal) => prevTotal-oldExpense.amount + updatedExpense.amount)
- ;
+     setTotalExpense ((prevTotal) => {
+      if (oldExpense.category === 'income' && updatedExpense.category=== 'expense') {
+        prevTotal= prevTotal-oldExpense.amount - updatedExpense.amount
+      }
+      else if (oldExpense.category ==='expense' && updatedExpense.category=== 'income') {
+        prevTotal= prevTotal + oldExpense.amount + updatedExpense.amount
+      }
+      else if (oldExpense.category=== updatedExpense.category) {
+        if (oldExpense.category=== 'income') {
+          prevTotal= prevTotal - oldExpense.amount + updatedExpense.amount
+        }
+        else if (oldExpense.category === 'expense') {
+          prevTotal= prevTotal + oldExpense.amount - updatedExpense.amount
+        }
+      }
+    });
   }
-};
+  };
+  
   return (
     <ExpenseContext.Provider value={{ expenses, setExpenses,totalExpense,setTotalExpense, addExpense, editingExpense,setEditingExpense, updateExpenses }}>
       {children}
