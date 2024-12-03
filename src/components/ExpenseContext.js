@@ -21,11 +21,22 @@ export const ExpenseProvider = ({ children }) => {
   
 
   const oldExpense = expenses.find((expense) => expense.id === updatedExpense.id);
-  if(oldExpense) {
+  if (oldExpense && updatedExpense.amount !== undefined) {
     setTotalExpense ((prevTotal) => {
       if (oldExpense.category === 'income' && updatedExpense.category=== 'expense'){
-        prevTotal = prevTotal - oldExpense.amount 
+        return prevTotal - oldExpense.amount - updatedExpense.amount;
       }
+      else if (oldExpense.category === 'expense' && updatedExpense.category === 'income') {
+        return  prevTotal + oldExpense.amount + updatedExpense.amount;
+      }
+      else if (oldExpense.category === updatedExpense.category) {
+        if (oldExpense.category === 'income') {
+          return prevTotal - oldExpense.amount + updatedExpense.amount;
+        } else if (oldExpense.category === 'expense') {
+          return prevTotal + oldExpense.amount - updatedExpense.amount;
+        }
+      }
+      return prevTotal;
     });
  }
   };
