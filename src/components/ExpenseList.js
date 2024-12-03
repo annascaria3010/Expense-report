@@ -15,11 +15,18 @@ function ExpenseList({}) {
   const handleDelete = (id) => {
     const expenseToDelete = expenses.find((expense) => expense.id===id)
     
+
+    if (expenseToDelete) {
+      setTotalExpense((prevTotal) => 
+        expenseToDelete.category === 'income' 
+          ? prevTotal - expenseToDelete.amount 
+          : prevTotal + expenseToDelete.amount
+      );
+    }
     const updatedExpenses = expenses.filter((expense) => expense.id !== id);
     setExpenses(updatedExpenses);
 
-    if(expenseToDelete)
-    setTotalExpense(totalExpense - expenseToDelete.amount);
+    
   };
 
   
