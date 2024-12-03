@@ -22,8 +22,11 @@ export const ExpenseProvider = ({ children }) => {
 
   const oldExpense = expenses.find((expense) => expense.id === updatedExpense.id);
   if(oldExpense) {
-    setTotalExpense ((prevTotal) => prevTotal-oldExpense.amount - updatedExpense.amount)
-;
+    setTotalExpense ((prevTotal) => {
+      if (oldExpense.category === 'income' && updatedExpense.category=== 'expense'){
+        prevTotal = prevTotal - oldExpense.amount 
+      }
+    });
  }
   };
   
