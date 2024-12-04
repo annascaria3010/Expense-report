@@ -4,6 +4,7 @@ import Title from './components/Title';
 import { useNavigate } from "react-router-dom";
 import ExpenseList from './components/ExpenseList';
 import ExpenseContext from './components/ExpenseContext';
+import CurrencyConverter from './components/CurrencyConverter';
 
 const Main = () => {
 const navigate = useNavigate();
@@ -28,6 +29,7 @@ useEffect(() => {
         <p>Total Balance : {totalExpense ? totalExpense.toFixed(2) : '0.00'}¥</p>
           <button className='addExpBtn' onClick={handleButtonClick}>Add Expense</button>
         </div>
+        <CurrencyConverter/>
         <ExpenseList/>
 
       </div>
