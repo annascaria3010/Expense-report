@@ -7,9 +7,21 @@ const CurrencyConverter = () => {
         <form className='converter-form'>
             <div className='form-group'>
                 <label className='form-label'>Enter Amount</label>
-                <input type='number' className='form-inputs' >
+                <input type='number' className='form-inputs' required /> 
+            </div>
 
-                </input>
+            <div className='form-group'>
+                <div className='form-section'>
+                    <label className='form-label'>From</label>
+                    <div className='currency-select'>
+                        <img src='' alt='Flag'/>
+                        <select className='currency-dropdown'>
+                            <option value={USD}>USD</option>
+                            <option value={INR}>INR</option>
+                            <option value={NPR>NPR</option>
+                        </select> 
+                    </div>
+                </div>
             </div>
         </form>
     </div>
