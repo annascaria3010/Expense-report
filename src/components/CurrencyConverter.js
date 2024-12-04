@@ -7,7 +7,9 @@ const CurrencyConverter = () => {
         <form className='converter-form'>
             <div className='form-group'>
                 <label className='form-label'>Enter Amount</label>
-                <input 
+                <input type='number' className='form-inputs' >
+
+                </input>
             </div>
         </form>
     </div>
