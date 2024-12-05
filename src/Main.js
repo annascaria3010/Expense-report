@@ -24,13 +24,19 @@ useEffect(() => {
 
         <Title title={"O-Kane"} />
 
+        <div className='split-screen'>
+        <div className='1st half'>  
         <div className='amount'>
-
-        <p>Total Balance : {totalExpense ? totalExpense.toFixed(2) : '0.00'}¥</p>
+          <p>Total Balance : {totalExpense ? totalExpense.toFixed(2) : '0.00'}¥</p>
           <button className='addExpBtn' onClick={handleButtonClick}>Add Expense</button>
         </div>
-        <CurrencyConverter/>
-        <ExpenseList/>
+          <CurrencyConverter/>
+        </div>
+        <div>
+          <ExpenseList/>
+        </div>
+        </div>
+       
 
       </div>
     </div>
