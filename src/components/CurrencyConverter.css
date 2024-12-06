@@ -44,3 +44,11 @@
 .converter-form .form-group .form-label {
     color: #fff;
 }
+
+
+.converter-form .form-group .form-input {
+    min-height: 48px;
+    border-radius: 6px;
+    background: rgba(2,7,40,0.5);
+    border: 1px solid #000;
+}
