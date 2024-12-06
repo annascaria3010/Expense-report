@@ -35,6 +35,12 @@
     margin-top: 45px;
 }
 
+.form-group{
+    display: flex;
+    margin-bottom: 30px;
+    flex-direction: column;
+}
+
 .converter-form .form-group .form-label {
     color: #fff;
 }
