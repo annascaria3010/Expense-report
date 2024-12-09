@@ -15,9 +15,10 @@
     flex-direction: column;
     border: 2px solid rgb(112, 8, 8);
     border-radius: 8px;
-    padding: 40px 30px 50px;
+    padding: 40px 40px 15px;
     background-color:rgb(112, 8, 8) ;
     box-shadow: 0 8px 32px rgba(0, 0,0,0.5);
+    
 }
 
 .converter-title {
@@ -31,24 +32,27 @@
     margin: 0 auto;
 }
 
-.currency-converter .converter-form {
+.converter-form {
     margin-top: 45px;
+    
 }
 
 .form-group{
     display: flex;
-    margin-bottom: 30px;
     flex-direction: column;
 }
 
-.converter-form .form-group .form-label {
+ .form-label {
     color: #fff;
+    font-weight: 500;
 }
 
 
-.converter-form .form-group .form-input {
-    min-height: 48px;
+ .form-inputs {
+    outline: none;
+    min-height: 30px;
     border-radius: 6px;
-    background: rgba(2,7,40,0.5);
-    border: 1px solid #000;
+    background: rgba(247, 239, 239, 0.459);
+    border: 1px solid #fff;
+    margin-bottom: 1rem;
 }
