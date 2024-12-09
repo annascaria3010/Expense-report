@@ -11,7 +11,7 @@ const CurrencyConverter = () => {
                 <input type='number' className='form-inputs' required /> 
             </div>
 
-            <div className='form-group'>
+            <div className='form-group form-currency-group'>
                 <div className='form-section'>
                     <label className='form-label'>From</label>
                     <div className='currency-select'>
@@ -44,9 +44,9 @@ const CurrencyConverter = () => {
                         </select> 
                     </div>
                 </div>
+            </div>
                 <button type='submit' className='submit-button'>Get Exchange Rate</button>
                 <p className='exchange-rate-result'>1000 YEN = 563.34 INR</p>
-            </div>
         </form>
     </div>
   )
