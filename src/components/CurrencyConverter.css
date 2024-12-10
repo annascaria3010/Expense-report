@@ -61,6 +61,7 @@
 .form-currency-group{
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
 }
 
@@ -69,8 +70,9 @@
     border-radius: 6px;
     display: flex;
     align-items: center;
-    padding: 0.5 10px;
+    padding: 0 10px;
     min-height: 45px;
+    margin-top: 0.5rem;
 }
 img{
     width: 25px;
@@ -79,4 +81,14 @@ img{
 .currency-dropdown{
     outline: none;
     border: none;
+    background: none;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0 10px 0 5px;
+
+}
+
+option{
+    color: #000;
+    font-weight: 500;
 }
