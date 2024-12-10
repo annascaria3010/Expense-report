@@ -62,7 +62,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
+    margin-bottom: 1rem;
 }
 
 .currency-select{
@@ -91,4 +91,17 @@ img{
 option{
     color: #000;
     font-weight: 500;
+}
+
+.swap-icon {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    display: flex;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgb(248, 248, 248);
+    margin: 1rem 1rem 0rem 1rem ;
 }
