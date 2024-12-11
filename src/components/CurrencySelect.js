@@ -26,7 +26,11 @@ const CurrencySelect = ({selectedCurrency, handleCurrency}) => {
     return (
     <div className='currency-select'>
     <img src={`https://flagsapi.com/${countryCode}/flat/64.png`} alt='Flag'/>
-    <select className='currency-dropdown' value={selectedCurrency}>
+    <select 
+        onChange={handleCurrency}
+        className='currency-dropdown' 
+        value={selectedCurrency}>
+        
         {currencyCodes.map(currency => (
             <option key={currency} value={currency}>{currency}</option>
         ))}
