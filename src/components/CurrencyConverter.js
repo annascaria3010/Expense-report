@@ -11,8 +11,18 @@ const CurrencyConverter = () => {
         setToCurrency(fromCurrency);
     }
 
+    const getExchangeRate =() => {
+        const API_KEY = import.meta.env.VITE_API_KEY;
+        const API_URL= `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrency}/${toCurrency}`;
+    }
+
+    const handleFormSubmit =(e) => {
+        e.preventDefault();
+        getExchangeRate();
+    }
+
     return (
-    <div className='currency-converter'>
+    <div className='currency-converter' onSubmit={handleFormSubmit}>
        <h2 className='converter-title'>Currency Converter</h2>
         <form className='converter-form'>
             <div className='form-group'>
