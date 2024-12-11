@@ -50,11 +50,12 @@
 
 .form-inputs {
     outline: none;
-    min-height: 30px;
+    min-height: 35px;
     border-radius: 6px;
     border: 1px solid #fff;
+    background-color: rgb(134, 44, 44);
     margin-bottom: 1rem;
-    color: #000000;
+    color: #fff;
     padding: 0 15px;
 }
 
@@ -102,6 +103,45 @@ option{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    background: #ffffff;
     border: 1px solid rgb(248, 248, 248);
-    margin: 1rem 1rem 0rem 1rem ;
+    margin: 1.7rem 1rem 0rem 1rem;
+}
+
+.svg {
+    color: rgb(112, 8, 8);
+}
+
+.swap-icon:hover {
+    background: #f3d0d0;
+}
+
+.submit-button {
+    width: 100%;
+    min-height: 36px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: rgb(112, 8, 8);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #f3d0d0;
+}
+
+.exchange-rate-result{
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    background: rgb(134, 44, 44);
+    color: #ffffff;
 }
