@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './CurrencyConverter.css' 
+import CurrencySelect from './CurrencySelect'
 
 const CurrencyConverter = () => {
-  return (
+    const [fromCurrency, setFromCurrency] = useState("JPY");
+    const [toCurrency, setToCurrency] = useState("INR");
+    
+    return (
     <div className='currency-converter'>
        <h2 className='converter-title'>Currency Converter</h2>
         <form className='converter-form'>
@@ -14,14 +18,10 @@ const CurrencyConverter = () => {
             <div className='form-group form-currency-group'>
                 <div className='form-section'>
                     <label className='form-label'>From</label>
-                    <div className='currency-select'>
-                        <img src='https://flagsapi.com/JP/flat/64.png' alt='Flag'/>
-                        <select className='currency-dropdown'>
-                            <option value='JPY' selected>JPY</option>
-                            <option value='INR'>INR</option>
-                            <option value='NPR'>NPR</option>
-                        </select> 
-                    </div>
+                    <CurrencySelect
+                        selectedCurrency = {fromCurrency}
+                        handleCurrency= {e => setFromCurrency(e.target.value)}
+                    />
                 </div>
 
                 <div className='swap-icon'>
@@ -35,14 +35,10 @@ const CurrencyConverter = () => {
 
                 <div className='form-section'>
                     <label className='form-label'>To</label>
-                    <div className='currency-select'>
-                        <img src='https://flagsapi.com/IN/flat/64.png' alt='Flag'/>
-                        <select className='currency-dropdown'>
-                            <option value='JPY'>JPY</option>
-                            <option value='INR' selected>INR</option>
-                            <option value='NPR'>NPR</option>
-                        </select> 
-                    </div>
+                    <CurrencySelect
+                        selectedCurrency = {toCurrency}
+                        handleCurrency= {e => setToCurrency(e.target.value)}
+                    />
                 </div>
             </div>
                 <button type='submit' className='submit-button'>Get Exchange Rate</button>

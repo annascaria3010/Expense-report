@@ -99,17 +99,12 @@ option{
     width: 30px;
     cursor: pointer;
     display: flex;
-    margin-top: 25px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background: #ffffff;
     border: 1px solid rgb(248, 248, 248);
     margin: 1.7rem 1rem 0rem 1rem;
-}
-
-.svg {
-    color: rgb(112, 8, 8);
 }
 
 .swap-icon:hover {
