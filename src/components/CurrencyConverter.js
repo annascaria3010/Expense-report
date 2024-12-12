@@ -11,9 +11,20 @@ const CurrencyConverter = () => {
         setToCurrency(fromCurrency);
     }
 
-    const getExchangeRate =() => {
+    const getExchangeRate = async() => {
         const API_KEY = import.meta.env.VITE_API_KEY;
         const API_URL= `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrency}/${toCurrency}`;
+    
+        try {
+            const response = await fetch(API_URL);
+            if(!response.ok) throw Error("Something went wrong")
+
+            const data = await response.json();
+            console.log(data);
+            }
+        catch (error) {
+            console.log(error);
+        }
     }
 
     const handleFormSubmit =(e) => {
