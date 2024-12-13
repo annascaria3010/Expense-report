@@ -12,7 +12,8 @@ const CurrencyConverter = () => {
     }
 
     const getExchangeRate = async() => {
-        const API_KEY = import.meta.env.VITE_API_KEY;
+        const API_KEY = process.env.REACT_APP_API_KEY;
+        console.log(API_KEY)
         const API_URL= `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrency}/${toCurrency}`;
     
         try {
