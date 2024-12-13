@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './CurrencyConverter.css' 
 import CurrencySelect from './CurrencySelect'
 
 const CurrencyConverter = () => {
+    const [amount, setAmount] = useState(100);
     const [fromCurrency, setFromCurrency] = useState("JPY");
     const [toCurrency, setToCurrency] = useState("INR");
-    
+    const [result, setResult] = useState("");
+    const [isLoading, setIsLoading] = useState("false");
     const handleSwapCurrencies =() => {
         setFromCurrency(toCurrency);
         setToCurrency(fromCurrency);
@@ -15,13 +17,17 @@ const CurrencyConverter = () => {
         const API_KEY = process.env.REACT_APP_API_KEY;
         console.log(API_KEY)
         const API_URL= `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrency}/${toCurrency}`;
-    
+        
+        setIsLoading(true);
+
         try {
             const response = await fetch(API_URL);
             if(!response.ok) throw Error("Something went wrong")
 
             const data = await response.json();
-            console.log(data);
+            const rate = (data.conversion_rate * amount).toFixed(2);
+            setResult(`${amount} ${fromCurrency} = ${rate} ${toCurrency}`);
+            console.log(rate);
             }
         catch (error) {
             console.log(error);
@@ -33,13 +39,20 @@ const CurrencyConverter = () => {
         getExchangeRate();
     }
 
+    useEffect(() => getExchangeRate,[]);
+
+
     return (
     <div className='currency-converter' onSubmit={handleFormSubmit}>
        <h2 className='converter-title'>Currency Converter</h2>
         <form className='converter-form'>
             <div className='form-group'>
                 <label className='form-label'>Enter Amount</label>
-                <input type='number' className='form-inputs' required /> 
+                <input type='number' 
+                className='form-inputs' 
+                value={amount} 
+                onChange={e => setAmount(e.target.value)}
+                required /> 
             </div>
 
             <div className='form-group form-currency-group'>
@@ -69,7 +82,7 @@ const CurrencyConverter = () => {
                 </div>
             </div>
                 <button type='submit' className='submit-button'>Get Exchange Rate</button>
-                <p className='exchange-rate-result'>1000 YEN = 563.34 INR</p>
+                <p className='exchange-rate-result'>{result}</p>
         </form>
     </div>
   )
