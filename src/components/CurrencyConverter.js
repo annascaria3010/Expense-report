@@ -3,7 +3,7 @@ import './CurrencyConverter.css'
 import CurrencySelect from './CurrencySelect'
 
 const CurrencyConverter = () => {
-    const [amount, setAmount] = useState(100);
+    const [amount, setAmount] = useState(1);
     const [fromCurrency, setFromCurrency] = useState("JPY");
     const [toCurrency, setToCurrency] = useState("INR");
     const [result, setResult] = useState("");
