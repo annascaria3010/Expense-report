@@ -7,7 +7,8 @@ const CurrencyConverter = () => {
     const [fromCurrency, setFromCurrency] = useState("JPY");
     const [toCurrency, setToCurrency] = useState("INR");
     const [result, setResult] = useState("");
-    const [isLoading, setIsLoading] = useState("false");
+    const [isLoading, setIsLoading] = useState(false);
+    
     const handleSwapCurrencies =() => {
         setFromCurrency(toCurrency);
         setToCurrency(fromCurrency);
@@ -28,9 +29,12 @@ const CurrencyConverter = () => {
             const rate = (data.conversion_rate * amount).toFixed(2);
             setResult(`${amount} ${fromCurrency} = ${rate} ${toCurrency}`);
             console.log(rate);
-            }
+        }
         catch (error) {
             console.log(error);
+        }
+        finally{
+            setIsLoading(false);
         }
     }
 
@@ -81,8 +85,8 @@ const CurrencyConverter = () => {
                     />
                 </div>
             </div>
-                <button type='submit' className='submit-button'>Get Exchange Rate</button>
-                <p className='exchange-rate-result'>{result}</p>
+                <button type='submit' className=' ${isLoading ? "loading" : ""} submit-button'>Get Exchange Rate</button>
+                <p className='exchange-rate-result'>{ isLoading ? "Getting exchange rate..." : result}</p>
         </form>
     </div>
   )
