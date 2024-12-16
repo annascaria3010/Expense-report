@@ -35,6 +35,8 @@ useEffect(() => {
     <div className="first-half">
         <div className="amount">
             <p>Total Balance: {totalExpense ? totalExpense.toFixed(2) : '0.00'}¥</p>
+            <p>Total Income: ¥</p>
+            <p>Total Expense: ¥</p>
             <button className="addExpBtn" onClick={handleButtonClick}>Add Expense</button>
         </div>
         <CurrencyConverter />
