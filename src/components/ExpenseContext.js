@@ -6,11 +6,13 @@ export const ExpenseProvider = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
   const [totalExpense, setTotalExpense] = useState(0);
   const [editingExpense, setEditingExpense] = useState(null);
-    
+  const [totalInc, setTotalInc] = useState(0);
+  const [totalExp, setTotalExp] = useState(0);
+
   const addExpense = (expense) => {
     setExpenses((prevExpenses) => [...prevExpenses, expense]);
     {expense.category === 'income' 
-      ?setTotalExpense((prevTotal) => prevTotal + expense.amount)
+      ?setTotalExpense((prevTotal) => prevTotal + expense.amount) && setTotalInc((prevInc) =>prevInc + expense.amount)
     : setTotalExpense((prevTotal) => prevTotal - expense.amount)};
   };
 
@@ -42,7 +44,7 @@ export const ExpenseProvider = ({ children }) => {
   };
   
   return (
-    <ExpenseContext.Provider value={{ expenses, setExpenses,totalExpense,setTotalExpense, addExpense, editingExpense,setEditingExpense, updateExpenses }}>
+    <ExpenseContext.Provider value={{ expenses, setExpenses,totalExpense,setTotalExpense,totalInc,setTotalInc, addExpense, editingExpense,setEditingExpense, updateExpenses }}>
       {children}
     </ExpenseContext.Provider>
   );

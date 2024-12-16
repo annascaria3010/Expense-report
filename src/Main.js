@@ -9,14 +9,14 @@ import Split from 'react-split';
 
 const Main = () => {
 const navigate = useNavigate();
-const {totalExpense} = useContext(ExpenseContext);
-
+const {totalExpense, totalInc} = useContext(ExpenseContext);
+c
 const handleButtonClick = () => {
   navigate('/expenseform')
 };
 useEffect(() => {
-  console.log("Updated totalExpense:", totalExpense);
-}, [totalExpense]);
+  
+}, [totalExpense, totalInc]);
 
 
   return (
@@ -35,7 +35,7 @@ useEffect(() => {
     <div className="first-half">
         <div className="amount">
             <p>Total Balance: {totalExpense ? totalExpense.toFixed(2) : '0.00'}¥</p>
-            <p>Total Income: ¥</p>
+            <p>Total Income: {totalInc ? totalInc.toFixed(2) : '0.00'} ¥</p>
             <p>Total Expense: ¥</p>
             <button className="addExpBtn" onClick={handleButtonClick}>Add Expense</button>
         </div>

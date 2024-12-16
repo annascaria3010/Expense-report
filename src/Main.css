@@ -5,17 +5,38 @@
     justify-content: center;
 }
 
+/* .amount {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    margin-bottom: 1rem;
+    color: rgb(112, 8, 8);
+*/
+
 .amount {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-size: 1.5rem; /* Increase font size of Total Expense */
-    font-weight: bold; /* Make it bold for emphasis (optional) */
+    text-align: center;
+    font-weight: bold; 
+    margin: 20px;
     margin-bottom: 1rem;
     color: rgb(112, 8, 8);
 }
 
+.amount p {
+    margin: 5px 0;
+    font-size: 1.5rem; /* Default size for all paragraphs */
+}
+
+.amount p:first-child {
+    font-size: 2rem; /* Larger size for the Total Balance */
+    font-weight: bold; /* Make it stand out more */
+}
 
 .addExpBtn{
     margin: 1rem;
