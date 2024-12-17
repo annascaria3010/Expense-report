@@ -13,7 +13,7 @@ export const ExpenseProvider = ({ children }) => {
     setExpenses((prevExpenses) => [...prevExpenses, expense]);
     {expense.category === 'income' 
       ?setTotalExpense((prevTotal) => prevTotal + expense.amount) && setTotalInc((prevInc) =>prevInc + expense.amount)
-    : setTotalExpense((prevTotal) => prevTotal - expense.amount)};
+    : setTotalExpense((prevTotal) => prevTotal - expense.amount) && setTotalExp((prevExp) =>prevExp + expense.amount)};
   };
 
   const updateExpenses = (updatedExpense) => {
@@ -44,7 +44,7 @@ export const ExpenseProvider = ({ children }) => {
   };
   
   return (
-    <ExpenseContext.Provider value={{ expenses, setExpenses,totalExpense,setTotalExpense,totalInc,setTotalInc, addExpense, editingExpense,setEditingExpense, updateExpenses }}>
+    <ExpenseContext.Provider value={{ expenses, setExpenses,totalExpense,setTotalExpense,totalInc,setTotalInc,totalExp, setTotalExp, addExpense, editingExpense,setEditingExpense, updateExpenses }}>
       {children}
     </ExpenseContext.Provider>
   );
