@@ -29,24 +29,23 @@
   display: flex;
   justify-content: center;
   margin: 3rem;
-  /* margin-right: 10rem; */
+  
   flex-direction: column;
   
 }
 
 .form-input{
-  display: block; /* Ensures the inputs take a full line */
-  width: 100%; /* Adjust width as needed */
-  margin-bottom: 1rem; /* Adds space between inputs */
-  padding: 0.5rem; /* Adds padding inside the inputs */
-  font-size: 1rem; /* Adjust font size */
-  border: 1px solid rgb(112, 8, 8); /* Optional: Styling for borders */
-  border-radius: 4px; /* Optional: Rounded corners */
+  display: block; 
+  margin-bottom: 1rem; 
+  padding: 0.5rem; 
+  font-size: 1rem; 
+  border: 1px solid rgb(112, 8, 8); 
+  border-radius: 4px;
 }
 
 .select-dropdown  {
   display: block;
-  box-shadow: none; /* Remove any focus shadows */
+  box-shadow: none;
   width: 100%;
   height: 40px;
   border: 1px solid rgb(112, 8, 8);
@@ -54,14 +53,18 @@
   font-size: 16px;
   font-family: sans-serif;
   margin-bottom: 1rem;
-  outline: none;
+ 
 }
-
+.select-dropdown:focus {
+  appearance: none;
+  border-color: rgb(180, 30, 30);
+  box-shadow: 0 0 5px rgba(180, 30, 30, 0.5);
+}
 
 .btns {
   display: flex;
-  justify-content: space-between; /* Ensures buttons are spaced apart */
-  gap: 0.5rem; /* Adds space between buttons */
+  justify-content: space-between; 
+  gap: 0.5rem; 
 }
 .form-button {
   padding: 0.5rem 1rem; 
@@ -76,15 +79,14 @@
 }
 
 .add-button:hover {
-  background-color: darkred; /* Darker red on hover */
+  background-color: darkred; 
 }
 
-/* Cancel button in green */
 .cancel-button {
   background-color: green;
   color: #fff;
 }
 
 .cancel-button:hover {
-  background-color: darkgreen; /* Darker green on hover */
+  background-color: darkgreen; 
 }

@@ -1,4 +1,4 @@
-import React, { useContext,useEffect,useState } from 'react';
+import React, { useContext,useEffect,useRef,useState } from 'react';
 import './ExpenseForm.css';
 import { useNavigate } from "react-router-dom";
 import ExpenseList from './ExpenseList';
@@ -13,6 +13,7 @@ function ExpenseForm() {
 
     const [form, setForm] = useState({description:'', amount:''});
     const [selectedOption, setSelectedOption] = useState(null);
+    const firstInput = useRef(null);
 
     useEffect(() => {
         if (editingExpense) {
@@ -59,6 +60,7 @@ function ExpenseForm() {
       
           setForm({ description: '', amount: '' }); 
           setSelectedOption(null);
+          firstInput.current.focus();
         
     }   
     
@@ -80,33 +82,35 @@ function ExpenseForm() {
         </div>
         <form className='form' onSubmit={handleAddButton}>
             
-            <Select
-                options={options}
-                value={selectedOption}
-                onChange={handledrop}
-                placeholder="Select Category"
-                className='form-opt select-dropdown'
-                required
-            />
-
-            <input 
-                type='text'
-                name="description"
-                value={form.description}
-                placeholder='Description'
-                onChange={handleChange}
-                className='form-input'
-                required
-            />
-            <input 
-                type='number'
-                name="amount"
-                value={form.amount}
-                placeholder='Amount in Yen'
-                onChange={handleChange}
-                className='form-input'
-                required
-            />
+            
+                <Select
+                    options={options}
+                    value={selectedOption}
+                    onChange={handledrop}
+                    placeholder="Select Category"
+                    className='select-dropdown'
+                    ref={firstInput}
+                    required
+                />
+                <input
+                    type='text'
+                    name="description"
+                    value={form.description}
+                    placeholder='Description'
+                    onChange={handleChange}
+                    className='form-input'
+                    required
+                />
+                <input
+                    type='number'
+                    name="amount"
+                    value={form.amount}
+                    placeholder='Amount in Yen'
+                    onChange={handleChange}
+                    className='form-input'
+                    required
+                />
+           
             <div className='btns'>
             <button type="submit" className='form-button add-button'>{editingExpense ? 'Save' : 'Add'}</button>
             <button type="button" onClick={cancel} className='form-button cancel-button'>Cancel</button>
