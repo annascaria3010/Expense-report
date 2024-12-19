@@ -1,4 +1,5 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useMemo } from 'react';
+import { use } from 'react';
 
 const ExpenseContext = createContext(); // Create context
 
@@ -9,12 +10,12 @@ export const ExpenseProvider = ({ children }) => {
   const [totalInc, setTotalInc] = useState(0);
   const [totalExp, setTotalExp] = useState(0);
 
-  const addExpense = (expense) => {
+  
+  const addExpense = useMemo((expense) => {
     setExpenses((prevExpenses) => [...prevExpenses, expense]);
-    {expense.category === 'income' 
-      ?setTotalExpense((prevTotal) => prevTotal + expense.amount) && setTotalInc((prevInc) =>prevInc + expense.amount)
-    : setTotalExpense((prevTotal) => prevTotal - expense.amount) && setTotalExp((prevExp) =>prevExp + expense.amount)};
-  };
+    {expense.category === 'income'? setTotalExpense((prevTotal) => prevTotal + expense.amount) 
+      : setTotalExpense((prevTotal) => prevTotal - expense.amount) };
+  },[setTotalExpense])
 
   const updateExpenses = (updatedExpense) => {
     setExpenses((prevExpenses) => 

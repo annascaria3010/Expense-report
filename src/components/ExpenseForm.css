@@ -56,6 +56,16 @@
  
 }
 
+select {
+  outline: none;
+}
+
+select:focus {
+  outline: none;
+  border: 2px solid black;
+  box-shadow: none;
+}
+
 .btns {
   display: flex;
   justify-content: space-between; 
