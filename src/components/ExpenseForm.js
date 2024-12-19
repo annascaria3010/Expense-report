@@ -9,7 +9,7 @@ import Select from 'react-select';
 
 function ExpenseForm() {
     const navigate = useNavigate();
-    const { addExpense, updateExpenses, expenses, setEditingExpense, editingExpense } = useContext(ExpenseContext);
+    const { addExpense, updateExpenses,totalExpense, expenses, setEditingExpense, editingExpense } = useContext(ExpenseContext);
 
     const [form, setForm] = useState({description:'', amount:''});
     const [selectedOption, setSelectedOption] = useState(null);
@@ -23,7 +23,7 @@ function ExpenseForm() {
             });
             setSelectedOption({ value: editingExpense.category, label: editingExpense.category });
         }
-    },[editingExpense]);
+    },[editingExpense,totalExpense]);
 
     const options = [
         { value: 'expense', label: 'Expense' },
@@ -116,6 +116,10 @@ function ExpenseForm() {
             <button type="button" onClick={cancel} className='form-button cancel-button'>Cancel</button>
             </div>
         </form>
+        <div className='amount'>
+        <p>Total Balance: {totalExpense ? totalExpense.toFixed(2) : '0.00'}¥</p>
+        </div>
+        
         <ExpenseList expenses={expenses}/>
         </div>
     </div>

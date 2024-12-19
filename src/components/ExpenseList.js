@@ -1,4 +1,4 @@
-import React, {useContext, useState } from 'react';
+import React, {useContext } from 'react';
 import './ExpenseList.css';
 import { useNavigate } from "react-router-dom";
 import ExpenseContext from './ExpenseContext';
@@ -7,8 +7,7 @@ import { FaTrash } from 'react-icons/fa';
 
 function ExpenseList({}) {
   const navigate = useNavigate();
-  const { expenses, setExpenses, totalExpense, setTotalExpense,setEditingExpense } = useContext(ExpenseContext);
-  const [editId, setEditId] = useState(null);
+  const { expenses, setExpenses, setTotalExpense,setEditingExpense } = useContext(ExpenseContext);
   
 
   // Delete Expense
