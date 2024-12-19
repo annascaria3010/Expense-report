@@ -15,7 +15,7 @@ function ExpenseForm() {
     const [selectedOption, setSelectedOption] = useState(null);
     const firstInput = useRef(null);
 
-    useEffect(() => {
+    useEffect(() => {   
         if (editingExpense) {
             setForm ({ 
                 description: editingExpense.description,
