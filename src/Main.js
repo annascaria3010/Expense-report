@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import './App.css';
 import Title from './components/Title';
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,9 @@ const {totalExpense, totalInc, totalExp} = useContext(ExpenseContext);
 const handleButtonClick = () => {
   navigate('/expenseform')
 };
+
+const memoizedCurrencyConverter = useMemo(() => <CurrencyConverter />, []);
+
 useEffect(() => {
   
 }, [totalExpense, totalInc, totalExp]);
@@ -39,7 +42,7 @@ useEffect(() => {
             
             <button className="addExpBtn" onClick={handleButtonClick}>Add Expense</button>
         </div>
-        <CurrencyConverter />
+        {memoizedCurrencyConverter}
     </div>
     <div className="second-half">
         <ExpenseList />
