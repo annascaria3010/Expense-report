@@ -16,7 +16,6 @@ const CurrencyConverter = () => {
 
     const getExchangeRate = async() => {
         const API_KEY = process.env.REACT_APP_API_KEY;
-        console.log(API_KEY)
         const API_URL= `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${fromCurrency}/${toCurrency}`;
         
         setIsLoading(true);
@@ -28,7 +27,6 @@ const CurrencyConverter = () => {
             const data = await response.json();
             const rate = (data.conversion_rate * amount).toFixed(2);
             setResult(`${amount} ${fromCurrency} = ${rate} ${toCurrency}`);
-            console.log(rate);
         }
         catch (error) {
             console.log(error);
