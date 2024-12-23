@@ -34,8 +34,8 @@ useEffect(() => {
     <div className="first-half">
         <div className="amount">
             <p>Total Balance: {totalExpense ? totalExpense.toFixed(2) : '0.00'}¥</p>
-              <p>Total Income: {totalInc ? totalInc.toFixed(2) : '0.00'} ¥</p>
-              <p>Total Expense: {totalExp ? totalExp.toFixed(2) : '0.00'}¥</p>
+              {/* <p>Total Income: {totalInc ? totalInc.toFixed(2) : '0.00'} ¥</p>
+              <p>Total Expense: {totalExp ? totalExp.toFixed(2) : '0.00'}¥</p> */}
             
             <button className="addExpBtn" onClick={handleButtonClick}>Add Expense</button>
         </div>
